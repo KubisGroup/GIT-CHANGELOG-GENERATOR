@@ -27,10 +27,10 @@ minor=`printf "%.0f" $((($gitCommitCount / 1000) % 1000));`;
 major=`printf "%.0f" $(($gitCommitCount / 1000000));`;
 
 # = = = TEXTS = = =
+templateVersion=`printf "%s.%s.%s" $major $minor $path;`
 welcomeText="Kubis Group CHANGELOG ($appversion) UNRELEASED; urgency=low"
 consoleWelcomeText="${ORANGE}Kubis ${STEELBLUE}Group ${WHITE}CHANGELOG ($appversion) UNRELEASED; urgency=low"
 consoleVersionText="Template version ${BLUE}$templateVersion${WHITE} (${GREEN}$gitVersion${WHITE})${WHITE}"
-templateVersion=`printf "%s.%s.%s" $major $minor $path;`
 versionText="Template version $templateVersion ($gitVersion)"
 
 # = = = FILE HEADER = = = 
