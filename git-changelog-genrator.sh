@@ -19,7 +19,6 @@ actualDate=`git log -1 --format="%at" | xargs -I{} date -d @{} +'%b%_d %H:%M'`
 appversion="1.0.0"
 
 # = = = GIT = = =
-lastFileCommit=`xmlstarlet sel -t -v "/ccms_package/commit" package.xml`
 gitVersion=`git log --pretty="%h" -n1 HEAD | awk '{print $0}'`
 gitCommitCount=`git rev-list HEAD --count | awk '{print $0}'`
 # = = = Version counting = = = 
@@ -50,13 +49,12 @@ function footer() {
 
 echo "$consoleWelcomeText"
 #printf "\tfile date: $lastDate | git date: $actualDate\n" # uncomment if do you want know this
-#printf "\tfile Git version: $lastFileCommit | Actual Git version: $gitVersion\n" # uncomment if do you want know this
 
 if [[ ($lastFileCommit != $gitVersion) ]]; then
     # add commit 
     if [[ ($lastDate < $actualDate) ]]; then
         echo "${PURPLE}ADD CHANGELOG to GIT${WHITE}";
-        git add ./CHANGELOG ./package.xml;
+        git add $filename;
         git commit -m "autogenerating CHANGELOG and update version to $templateVersion";
     fi
     
