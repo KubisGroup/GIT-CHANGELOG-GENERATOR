@@ -28,10 +28,10 @@ major=`printf "%.0f" $(($gitCommitCount / 1000000));`;
 
 # = = = TEXTS = = =
 templateVersion=`printf "%s.%s.%s" $major $minor $path;`
-welcomeText="Kubis Group CHANGELOG ($appversion) UNRELEASED; urgency=low"
-consoleWelcomeText="${ORANGE}Kubis ${STEELBLUE}Group ${WHITE}CHANGELOG ($appversion) UNRELEASED; urgency=low"
-consoleVersionText="Template version ${BLUE}$templateVersion${WHITE} (${GREEN}$gitVersion${WHITE})${WHITE}"
-versionText="Template version $templateVersion ($gitVersion)"
+welcomeText="Kubis Group CHANGELOG ($appversion)"
+consoleWelcomeText="${ORANGE}Kubis ${STEELBLUE}Group ${WHITE}CHANGELOG ($appversion)"
+consoleVersionText="GIT version ${BLUE}$templateVersion${WHITE} (${GREEN}$gitVersion${WHITE})${WHITE}"
+versionText="GIT version $templateVersion ($gitVersion)"
 
 # = = = FILE HEADER = = = 
 function head() {
